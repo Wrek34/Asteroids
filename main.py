@@ -16,18 +16,20 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     #game loop - runs screen
-    while 0 == 0:
+    while True:
         #allows user to exit game window
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        player.update(dt)
+        
         #window filled
         screen.fill("black", rect=None, special_flags=0)
         #add player to the screen
         player.draw(screen)
         pygame.display.flip()
 
-        
         #limit framerate to 60 FPS
         dt = clock.tick(60) / 1000
     
